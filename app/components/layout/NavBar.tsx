@@ -17,70 +17,21 @@ export default function NavBar({ onToggleChange }: NavBarProps) {
         <img src="app/assets/eira-logo.svg" alt="EIRA Logo" className="h-12" />
       </div>
       <div className="flex justify-center">
-        <div className="flex items-center space-x-2">
-          {/* Tutor label */}
+        <label className="relative flex justify-between items-center group p-2 text-base">
+          <span className="text-primary-600">Tutor</span>
+          <input
+            type="checkbox"
+            className="absolute left-1/2 -translate-x-1/2 w-full h-full peer appearance-none rounded-md"
+          />
+          <span className="w-16 h-8 flex items-center flex-shrink-0 ml-2 p-1 bg-primary-500 rounded-full duration-300 ease-in-out peer-checked:bg-primary-600 after:w-8 after:h-8 after:bg-white after:rounded-full after:shadow-md after:duration-300 peer-checked:after:translate-x-6 group-hover:after:translate-x-1"></span>
           <span
-            className={`
-            text-sm
-            ${
-              isStudent
-                ? "text-gray-500 font-normal"
-                : "text-blue-600 font-medium"
-            }
-          `}
-          >
-            Tutor
-          </span>
-
-          {/* Toggle pill */}
-          <div
-            onClick={handleToggle}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                setIsStudent(!isStudent);
-              }
-            }}
-            role="switch"
-            aria-checked={isStudent}
-            tabIndex={0}
-            className={`
-            relative 
-            w-10 h-5 
-            rounded-full 
-            cursor-pointer 
-            transition-colors
-            ${isStudent ? "bg-blue-600" : "bg-blue-200"}
-          `}
-          >
-            {/* Thumb */}
-            <div
-              className={`
-              absolute 
-              top-0.5 
-              left-0.5 
-              w-4 h-4 
-              bg-white 
-              rounded-full 
-              transition-transform
-              ${isStudent ? "translate-x-5" : "translate-x-0"}
-            `}
-            />
-          </div>
-
-          {/* Student label */}
-          <span
-            className={`
-            text-sm
-            ${
-              isStudent
-                ? "text-blue-600 font-medium"
-                : "text-gray-500 font-normal"
-            }
-          `}
+            className={`${
+              isStudent ? "text-primary-900" : "text-primary-600"
+            } ml-2`}
           >
             Student
           </span>
-        </div>
+        </label>
       </div>
       <div className="flex justify-end">
         <button
